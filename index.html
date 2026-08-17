@@ -3,335 +3,499 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="밤밤웍스는 공간의 모습보다 그 안에서 보내게 될 시간을 먼저 생각합니다. 오래 유지될 수 있는 구조와 기준을 설계합니다.">
+<meta name="theme-color" content="#50392C">
+<meta name="description" content="BAMBAM WORKS — 공간의 모습보다 그 안에서 보내게 될 시간을 먼저 생각합니다. 오래 유지될 수 있는 구조와 기준을 설계합니다.">
+<meta property="og:title" content="BAMBAM WORKS">
+<meta property="og:description" content="공간의 모습보다 그 안에서 보내게 될 시간을 먼저 생각합니다.">
+<meta property="og:type" content="website">
 <title>BAMBAM WORKS</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --brown:#5A4333;
-  --brown-2:#745640;
-  --brown-deep:#2D221A;
-  --brass:#A47C48;
-  --paper:#FBF8F2;
-  --bg:#F4EFE6;
-  --line:#DDD2C3;
-  --soft:#75695F;
-  --white:#FFFDF9;
+:root {
+  --chestnut:#50392C;
+  --chestnut-2:#6D5140;
+  --chestnut-3:#876A54;
+  --ink:#2A211B;
+  --paper:#FBF7EF;
+  --paper-2:#F3ECE1;
+  --cream:#FFFDF8;
+  --brass:#A57C4D;
+  --line:#DCCFC0;
+  --muted:#796E65;
   --serif-en:'Bodoni Moda',serif;
   --serif-ko:'Noto Serif KR',serif;
   --sans:'Noto Sans KR',sans-serif;
-  --max:1480px;
+  --max:1460px;
+  --header:74px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--brown-deep);
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--paper);
+  color:var(--ink);
   font-family:var(--sans);
   line-height:1.8;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-a{color:inherit;text-decoration:none}
-button,input,textarea,select{font:inherit;color:inherit}
-button{cursor:pointer}
-section{scroll-margin-top:88px}
-.wrap{width:min(100%,var(--max));margin:0 auto;padding:0 28px}
+body.intro-open { overflow:hidden; }
+a { color:inherit; text-decoration:none; }
+button,input,textarea,select { font:inherit; color:inherit; }
+button { cursor:pointer; }
+section { scroll-margin-top:calc(var(--header) + 14px); }
+img { max-width:100%; display:block; }
 
-header{
-  position:sticky;top:0;z-index:50;
-  border-bottom:1px solid rgba(90,67,51,.14);
-  background:rgba(251,248,242,.94);
-  backdrop-filter:blur(12px);
+.page-wrap { width:min(100%, var(--max)); margin:0 auto; padding:0 30px; }
+
+/* Intro */
+.intro-screen {
+  position:fixed; inset:0; z-index:200;
+  display:grid; place-items:center;
+  background:var(--chestnut);
+  color:var(--paper);
+  opacity:1;
+  transition:opacity .9s ease, visibility .9s ease;
 }
-.nav{
-  height:74px;display:flex;align-items:center;justify-content:space-between;
+.intro-screen.hide { opacity:0; visibility:hidden; pointer-events:none; }
+.intro-mark {
+  position:absolute; width:min(52vw,620px); aspect-ratio:1;
+  background:url("data:image/png;base64,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") center/contain no-repeat;
+  opacity:.055;
 }
-.logo{
+.intro-word {
+  position:relative; z-index:1; text-align:center;
   font-family:var(--serif-en);
-  font-size:24px;
-  color:var(--brown);
+  font-size:clamp(54px,9vw,126px);
+  line-height:.92; font-weight:400; letter-spacing:-.035em;
+  animation:introRise 1.15s cubic-bezier(.2,.75,.2,1) both;
+}
+.intro-word span { display:block; }
+.intro-skip {
+  position:absolute; right:28px; bottom:24px;
+  border:0; background:none; color:rgba(255,253,248,.65);
+  font-size:11px; letter-spacing:.12em;
+}
+@keyframes introRise {
+  from { opacity:0; transform:translateY(18px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Header */
+header {
+  position:sticky; top:0; z-index:60;
+  height:var(--header);
+  background:rgba(251,247,239,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(80,57,44,.12);
+}
+.nav {
+  height:100%; display:flex; align-items:center; justify-content:space-between;
+}
+.logo {
+  font-family:var(--serif-en); font-size:24px; letter-spacing:.01em;
+  color:var(--chestnut); white-space:nowrap;
+}
+.nav-links { display:flex; align-items:center; gap:34px; }
+.nav-links a {
+  position:relative; font-family:var(--serif-en); font-size:14px;
   letter-spacing:.025em;
 }
-.nav-links{display:flex;gap:34px}
-.nav-links a{
-  font-family:var(--serif-en);
-  font-size:15px;
-  color:var(--brown-deep);
+.nav-links a::after {
+  content:""; position:absolute; left:0; bottom:-7px; width:0; height:1px;
+  background:var(--chestnut); transition:width .25s ease;
 }
-.nav-links a:hover{color:var(--brown-2)}
-.nav-toggle{display:none;border:0;background:none;font-size:22px;color:var(--brown)}
-.mobile-menu{display:none;padding:4px 28px 18px;border-top:1px solid var(--line)}
-.mobile-menu.open{display:block}
-.mobile-menu a{
-  display:block;padding:13px 0;border-bottom:1px solid var(--line);
-  font-family:var(--serif-en);font-size:18px;
+.nav-links a:hover::after { width:100%; }
+.nav-toggle { display:none; border:0; background:none; font-size:22px; color:var(--chestnut); }
+.mobile-menu {
+  display:none; position:fixed; z-index:70; top:var(--header); left:0; right:0;
+  background:var(--paper); border-bottom:1px solid var(--line); padding:8px 26px 22px;
+}
+.mobile-menu.open { display:block; }
+.mobile-menu a {
+  display:block; padding:14px 0; border-bottom:1px solid var(--line);
+  font-family:var(--serif-en); font-size:19px;
 }
 
-.hero{
-  min-height:calc(100vh - 74px);
-  display:grid;
-  grid-template-columns:1fr 1fr;
+/* Shared */
+.eyebrow {
+  color:var(--chestnut-3); font-family:var(--serif-en);
+  font-size:13px; letter-spacing:.11em; text-transform:uppercase;
 }
-.hero-visual{
-  min-height:calc(100vh - 74px);
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:58px 38px;
-  background:var(--brown);
+.big-en {
+  color:var(--chestnut); font-family:var(--serif-en);
+  font-size:clamp(54px,8vw,116px); font-weight:400; line-height:.95; letter-spacing:-.035em;
 }
-.hero-visual::before{
-  content:"";
-  position:absolute;
-  width:72%;
-  aspect-ratio:1;
-  left:50%;
-  top:55%;
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition:opacity .9s ease, transform .9s cubic-bezier(.2,.75,.2,1);
+}
+.reveal.is-visible { opacity:1; transform:none; }
+.btn {
+  min-height:44px; display:inline-flex; align-items:center; justify-content:center;
+  padding:11px 24px; border:1px solid var(--chestnut);
+  background:transparent; color:var(--chestnut);
+  font-size:12px; letter-spacing:.02em; transition:.2s ease;
+}
+.btn:hover { background:rgba(80,57,44,.05); }
+.btn.dark { background:var(--chestnut); color:var(--paper); }
+.btn.dark:hover { background:var(--chestnut-2); }
+.btn.light { border-color:var(--paper); color:var(--paper); }
+.btn.light-fill { background:var(--paper); color:var(--chestnut); border-color:var(--paper); }
+
+/* Cover */
+.cover {
+  min-height:calc(100vh - var(--header));
+  display:grid; grid-template-columns:1fr 1fr;
+}
+.cover-brand {
+  position:relative; overflow:hidden;
+  min-height:calc(100vh - var(--header));
+  display:flex; align-items:flex-start; justify-content:center;
+  padding:62px 38px;
+  background:var(--chestnut);
+}
+.cover-brand::before {
+  content:""; position:absolute; width:74%; aspect-ratio:1; left:50%; top:56%;
   transform:translate(-50%,-50%);
-  background-image:url("data:image/png;base64,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");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
-  opacity:.075;
+  background:url("data:image/png;base64,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") center/contain no-repeat; opacity:.072;
 }
-.hero-visual h1{
-  position:relative;
-  z-index:1;
-  color:var(--paper);
+.cover-brand h1 {
+  position:relative; z-index:2; color:var(--paper);
   font-family:var(--serif-en);
-  font-size:clamp(56px,7vw,112px);
-  font-weight:400;
-  line-height:1.03;
-  text-align:center;
-  letter-spacing:-.02em;
+  font-size:clamp(58px,7.7vw,120px); line-height:.97; font-weight:400;
+  letter-spacing:-.04em; text-align:center;
 }
-.hero-visual em{display:block;margin-top:7px;font-weight:400}
-.hero-copy{
-  min-height:calc(100vh - 74px);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:80px 8vw;background:var(--paper);text-align:center;
+.cover-brand h1 span { display:block; }
+.cover-copy {
+  min-height:calc(100vh - var(--header));
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  padding:90px 8vw; text-align:center; background:var(--cream);
 }
-.kicker{
-  margin-bottom:28px;color:var(--brown-2);
-  font-family:var(--serif-en);font-size:21px;letter-spacing:.04em;
+.cover-copy .eyebrow { margin-bottom:28px; }
+.cover-copy h2 {
+  max-width:750px; margin-bottom:28px;
+  font-family:var(--serif-ko); font-size:clamp(28px,3vw,47px); font-weight:400;
+  line-height:1.75; letter-spacing:-.025em;
 }
-.hero-copy h2{
-  margin-bottom:29px;font-family:var(--serif-ko);
-  font-size:clamp(28px,3vw,47px);font-weight:400;line-height:1.72;
+.cover-copy p {
+  max-width:670px; color:var(--muted); font-size:14px; line-height:2.08;
 }
-.hero-copy p{
-  max-width:660px;color:var(--soft);font-size:14.5px;line-height:2.08;
-}
-.hero-actions{display:flex;gap:14px;margin-top:42px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:44px;padding:11px 23px;
-  border:1px solid var(--brown);
-  background:transparent;color:var(--brown);
-  font-size:13px;transition:.2s ease;
-}
-.btn:hover{background:rgba(90,67,51,.05)}
-.btn.dark{background:var(--brown);color:var(--paper)}
-.btn.dark:hover{background:var(--brown-2)}
-.text-link{
-  margin-top:22px;color:var(--brown);
-  border-bottom:1px solid var(--brown);
-  font-family:var(--serif-en);font-size:14px;
+.cover-actions { display:flex; gap:12px; margin-top:42px; }
+.cover-link {
+  margin-top:23px; color:var(--chestnut);
+  font-family:var(--serif-en); font-size:13px;
+  border-bottom:1px solid var(--chestnut);
 }
 
-.section{padding:140px 7vw;background:var(--paper)}
-.section.alt{background:var(--bg)}
-.section-head{max-width:780px;margin:0 auto 72px;text-align:center}
-.section-head .en{
-  display:block;margin-bottom:13px;
-  color:var(--brown);
-  font-family:var(--serif-en);
-  font-size:clamp(48px,6vw,84px);line-height:1;
+/* Statement page */
+.statement {
+  min-height:88vh; display:grid; place-items:center; padding:140px 28px;
+  background:var(--paper);
 }
-.section-head h2{
-  font-family:var(--serif-ko);font-size:20px;font-weight:400;
+.statement-inner { max-width:950px; text-align:center; }
+.statement .eyebrow { margin-bottom:32px; }
+.statement blockquote {
+  font-family:var(--serif-ko); font-size:clamp(28px,4.5vw,58px);
+  line-height:1.7; font-weight:400; letter-spacing:-.035em;
 }
-.section-head p{
-  margin-top:20px;color:var(--soft);font-size:14px;line-height:2;
-}
-
-.stay-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:1px;border:1px solid var(--line);background:var(--line);
-}
-.stay-card{
-  min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:46px;color:var(--paper);position:relative;overflow:hidden;
-  background:linear-gradient(145deg,#8A6C55,#574132);
-}
-.stay-card:nth-child(2){background:linear-gradient(145deg,#A58C73,#695746)}
-.stay-card::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(transparent 42%,rgba(45,34,26,.58));
-}
-.stay-card > div{position:relative;z-index:2}
-.stay-card .meta{margin-bottom:10px;font-family:var(--serif-en);font-size:14px}
-.stay-card h3{
-  margin-bottom:14px;font-family:var(--serif-en);font-size:42px;font-weight:400;
-}
-.stay-card p{max-width:520px;margin-bottom:24px;font-size:13px;line-height:1.9}
-.card-actions{display:flex;gap:10px;flex-wrap:wrap}
-.card-actions .btn{border-color:var(--paper);color:var(--paper)}
-.card-actions .btn.dark{background:var(--paper);color:var(--brown-deep)}
-
-.works-intro{max-width:880px;margin:0 auto 72px;text-align:center}
-.works-intro p{
-  color:var(--brown-deep);
-  font-family:var(--serif-ko);
-  font-size:clamp(22px,3vw,34px);line-height:1.85;
-}
-.areas{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
-  margin-bottom:90px;border:1px solid var(--line);background:var(--line);
-}
-.area{min-height:260px;padding:42px;background:var(--paper)}
-.area .num{
-  margin-bottom:28px;color:var(--brass);
-  font-family:var(--serif-en);font-size:28px;font-style:italic;
-}
-.area h3{
-  margin-bottom:12px;font-family:var(--serif-ko);font-size:20px;font-weight:400;
-}
-.area p{color:var(--soft);font-size:13.5px;line-height:1.95}
-.portfolio-title{
-  margin-bottom:28px;color:var(--brown);
-  font-family:var(--serif-en);font-size:38px;font-weight:400;
-}
-.portfolio-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  border:1px solid var(--line);background:var(--line);
-}
-.project{
-  min-height:430px;padding:34px;display:flex;flex-direction:column;justify-content:flex-end;
-  color:var(--paper);position:relative;
-  background:linear-gradient(145deg,#8B705B,#5B4434);
-}
-.project:nth-child(2){background:linear-gradient(145deg,#9A8068,#675442)}
-.project:nth-child(3){background:linear-gradient(145deg,#B09173,#7A604A)}
-.project::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(transparent 48%,rgba(45,34,26,.56));
-}
-.project > div{position:relative;z-index:2}
-.project .tag{font-family:var(--serif-en);font-size:13px}
-.project h3{
-  margin:8px 0 10px;font-family:var(--serif-en);font-size:30px;font-weight:400;
-}
-.project p{font-size:13px;line-height:1.8}
-.works-cta{text-align:center;margin-top:54px}
-
-.philosophy-list{max-width:1000px;margin:0 auto;border-top:1px solid var(--line)}
-.philosophy-item{
-  display:grid;grid-template-columns:70px 1fr;gap:24px;
-  padding:36px 0;border-bottom:1px solid var(--line);
-}
-.philosophy-item .num{
-  color:var(--brass);font-family:var(--serif-en);font-size:28px;font-style:italic;
-}
-.philosophy-item h3{
-  margin-bottom:10px;font-family:var(--serif-ko);font-size:20px;font-weight:400;
-}
-.philosophy-item p{color:var(--soft);font-size:14px;line-height:2}
-.manifesto{max-width:1000px;margin:86px auto 0}
-.manifesto-title{
-  margin-bottom:28px;color:var(--brown);font-family:var(--serif-en);font-size:38px;font-weight:400;
-}
-.manifesto-item{border-top:1px solid var(--line)}
-.manifesto-item:last-child{border-bottom:1px solid var(--line)}
-.manifesto-toggle{
-  width:100%;display:grid;grid-template-columns:70px 1fr 24px;gap:20px;
-  padding:28px 0;border:0;background:none;text-align:left;
-}
-.manifesto-toggle .num{
-  color:var(--brass);font-family:var(--serif-en);font-size:27px;font-style:italic;
-}
-.manifesto-toggle h3{font-family:var(--serif-ko);font-size:19px;font-weight:400}
-.manifesto-toggle .plus{color:var(--brown);font-size:19px;transition:transform .2s ease}
-.manifesto-item.open .manifesto-toggle .plus{transform:rotate(45deg)}
-.manifesto-body{display:none;padding:0 0 34px 90px}
-.manifesto-item.open .manifesto-body{display:block}
-.manifesto-body p{margin-bottom:12px;color:var(--soft);font-size:14px;line-height:2.1}
-
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:0 auto;
-}
-.contact-copy h3{
-  margin-bottom:20px;color:var(--brown);
-  font-family:var(--serif-en);font-size:38px;font-weight:400;
-}
-.contact-copy p{color:var(--soft);font-size:14px;line-height:2}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field.full{grid-column:1/-1}
-.field label{display:block;margin-bottom:7px;color:var(--soft);font-size:12px}
-.field input,.field select,.field textarea{
-  width:100%;padding:12px 10px;border:0;border-bottom:1px solid var(--brown);
-  background:transparent;
-}
-.field textarea{min-height:120px;resize:vertical}
-.form-note{grid-column:1/-1;margin-top:10px;color:var(--soft);font-size:12px;line-height:1.8}
-.form-actions{grid-column:1/-1;margin-top:10px}
-
-footer{padding:64px 28px;background:var(--brown);color:var(--paper)}
-.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.footer-brand{font-family:var(--serif-en);font-size:27px}
-.footer-info{font-size:12px;line-height:2;color:#E9DED1}
-.footer-copy{
-  grid-column:1/-1;margin-top:20px;padding-top:20px;
-  border-top:1px solid rgba(251,248,242,.25);color:#DCCDBE;font-size:11px;
+.statement p {
+  max-width:600px; margin:34px auto 0; color:var(--muted); font-size:14px; line-height:2;
 }
 
-.modal-overlay{
-  position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
-  padding:24px;background:rgba(45,34,26,.45);
+/* Editorial image placeholder */
+.editorial-image {
+  min-height:82vh; position:relative; overflow:hidden;
+  display:flex; align-items:flex-end;
+  background:linear-gradient(135deg,#90745E 0%,#69503E 50%,#49362B 100%);
 }
-.modal-overlay.open{display:flex}
-.modal{width:min(100%,420px);padding:38px 30px;background:var(--paper);text-align:center}
-.modal h3{margin-bottom:14px;font-family:var(--serif-ko);font-size:21px;font-weight:400}
-.modal p{color:var(--soft);font-size:13px;line-height:1.9}
-.modal .btn{width:100%;margin-top:24px}
+.editorial-image::before {
+  content:"PHOTO"; position:absolute; top:24px; right:28px;
+  color:rgba(255,255,255,.35); font-family:var(--serif-en); font-size:11px; letter-spacing:.16em;
+}
+.editorial-image::after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(transparent 44%,rgba(42,33,27,.64));
+}
+.editorial-copy {
+  position:relative; z-index:2; max-width:860px; padding:56px 6vw; color:var(--paper);
+}
+.editorial-copy .eyebrow { color:#E4D5C6; margin-bottom:14px; }
+.editorial-copy h2 {
+  margin-bottom:16px; font-family:var(--serif-en); font-size:clamp(48px,7vw,104px);
+  font-weight:400; line-height:1; letter-spacing:-.035em;
+}
+.editorial-copy p { max-width:620px; font-size:13px; line-height:1.95; }
 
-@media(max-width:980px){
-  .hero{grid-template-columns:1fr}
-  .hero-visual,.hero-copy{min-height:700px}
-  .stay-grid,.areas,.portfolio-grid,.contact-grid{grid-template-columns:1fr}
+/* Stay */
+.stay-section { padding:150px 6vw; background:var(--cream); }
+.section-head { max-width:840px; margin:0 auto 84px; text-align:center; }
+.section-head .big-en { margin-bottom:18px; }
+.section-head h2 {
+  font-family:var(--serif-ko); font-size:20px; font-weight:400; line-height:1.9;
 }
-@media(max-width:760px){
-  .nav-links{display:none}
-  .nav-toggle{display:block}
-  .hero-visual,.hero-copy{min-height:calc(100vh - 74px)}
-  .hero-copy{padding:70px 28px}
-  .section{padding:100px 24px}
-  .hero-actions{width:100%;flex-direction:column}
-  .hero-actions .btn{width:100%}
-  .philosophy-item{grid-template-columns:48px 1fr}
-  .manifesto-toggle{grid-template-columns:48px 1fr 20px}
-  .manifesto-body{padding-left:68px}
-  .form{grid-template-columns:1fr}
-  .field.full,.form-note,.form-actions{grid-column:auto}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-copy{grid-column:auto}
+.section-head p { margin-top:20px; color:var(--muted); font-size:14px; line-height:2; }
+.stay-list { max-width:1240px; margin:0 auto; }
+.stay-row {
+  display:grid; grid-template-columns:1.15fr .85fr;
+  min-height:680px; border-top:1px solid var(--line);
+}
+.stay-row:last-child { border-bottom:1px solid var(--line); }
+.stay-row.reverse { grid-template-columns:.85fr 1.15fr; }
+.stay-row.reverse .stay-photo { order:2; }
+.stay-row.reverse .stay-content { order:1; }
+.stay-photo {
+  min-height:680px; position:relative;
+  background:linear-gradient(145deg,#A98C72,#624A39);
+}
+.stay-photo::after {
+  content:"PHOTO"; position:absolute; top:22px; left:24px; color:rgba(255,255,255,.42);
+  font-family:var(--serif-en); font-size:11px; letter-spacing:.14em;
+}
+.stay-content {
+  min-height:680px; display:flex; flex-direction:column; justify-content:center;
+  padding:70px 7vw; background:var(--paper);
+}
+.stay-meta { margin-bottom:18px; color:var(--chestnut-3); font-family:var(--serif-en); font-size:13px; }
+.stay-content h3 {
+  margin-bottom:22px; color:var(--chestnut);
+  font-family:var(--serif-en); font-size:clamp(42px,5vw,72px); font-weight:400; line-height:1;
+}
+.stay-content p { color:var(--muted); font-size:14px; line-height:2.05; }
+.stay-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:30px; }
+
+/* Works */
+.works-section { padding:150px 6vw; background:var(--paper-2); }
+.works-intro {
+  max-width:970px; margin:0 auto 100px; text-align:center;
+}
+.works-intro .big-en { margin-bottom:28px; }
+.works-intro p {
+  font-family:var(--serif-ko); font-size:clamp(25px,3.6vw,46px);
+  line-height:1.75; letter-spacing:-.03em;
+}
+.work-areas {
+  max-width:1180px; margin:0 auto 120px; border-top:1px solid var(--line);
+}
+.work-area {
+  display:grid; grid-template-columns:90px 1fr 1.2fr; gap:34px;
+  padding:34px 0; border-bottom:1px solid var(--line); align-items:start;
+}
+.work-area .num { color:var(--brass); font-family:var(--serif-en); font-size:27px; font-style:italic; }
+.work-area h3 { font-family:var(--serif-ko); font-size:19px; font-weight:400; }
+.work-area p { color:var(--muted); font-size:13px; line-height:1.9; }
+.projects { max-width:1280px; margin:0 auto; }
+.projects-title {
+  margin-bottom:36px; color:var(--chestnut); font-family:var(--serif-en);
+  font-size:clamp(46px,6vw,82px); font-weight:400;
+}
+.project-feature {
+  min-height:760px; position:relative; display:flex; align-items:flex-end;
+  margin-bottom:34px; padding:52px 5vw;
+  background:linear-gradient(145deg,#967B64,#594232); color:var(--paper);
+}
+.project-feature:nth-of-type(3) { background:linear-gradient(145deg,#A68E75,#6E5947); }
+.project-feature:nth-of-type(4) { background:linear-gradient(145deg,#B59678,#745943); }
+.project-feature::after {
+  content:""; position:absolute; inset:0; background:linear-gradient(transparent 45%,rgba(42,33,27,.62));
+}
+.project-feature::before {
+  content:"PHOTO"; position:absolute; top:25px; right:28px;
+  color:rgba(255,255,255,.34); font-family:var(--serif-en); font-size:11px; letter-spacing:.15em;
+}
+.project-copy { position:relative; z-index:2; }
+.project-copy .meta { margin-bottom:10px; font-family:var(--serif-en); font-size:13px; }
+.project-copy h3 {
+  margin-bottom:15px; font-family:var(--serif-en); font-size:clamp(45px,6vw,82px);
+  font-weight:400; line-height:1;
+}
+.project-copy p { max-width:650px; font-size:13px; line-height:1.95; }
+
+/* Philosophy */
+.philosophy { padding:150px 6vw; background:var(--cream); }
+.philosophy-head { max-width:850px; margin:0 auto 90px; text-align:center; }
+.philosophy-head .big-en { margin-bottom:22px; }
+.philosophy-head p { color:var(--muted); font-size:14px; line-height:2; }
+.principles { max-width:1040px; margin:0 auto; border-top:1px solid var(--line); }
+.principle {
+  display:grid; grid-template-columns:75px 1fr; gap:26px; padding:38px 0;
+  border-bottom:1px solid var(--line);
+}
+.principle .num { color:var(--brass); font-family:var(--serif-en); font-size:29px; font-style:italic; }
+.principle h3 {
+  margin-bottom:11px; font-family:var(--serif-ko); font-size:21px; font-weight:400;
+}
+.principle p { color:var(--muted); font-size:14px; line-height:2; }
+
+.manifesto { max-width:1040px; margin:100px auto 0; }
+.manifesto-title {
+  margin-bottom:30px; color:var(--chestnut);
+  font-family:var(--serif-en); font-size:clamp(48px,6vw,82px); font-weight:400;
+}
+.manifesto-item { border-top:1px solid var(--line); }
+.manifesto-item:last-child { border-bottom:1px solid var(--line); }
+.manifesto-toggle {
+  width:100%; display:grid; grid-template-columns:75px 1fr 26px; gap:22px;
+  align-items:start; padding:31px 0; border:0; background:none; text-align:left;
+}
+.manifesto-toggle .num { color:var(--brass); font-family:var(--serif-en); font-size:28px; font-style:italic; }
+.manifesto-toggle h3 { font-family:var(--serif-ko); font-size:20px; font-weight:400; }
+.manifesto-toggle .plus {
+  color:var(--chestnut); font-size:20px; transform-origin:center;
+  transition:transform .25s ease;
+}
+.manifesto-item.open .plus { transform:rotate(45deg); }
+.manifesto-body {
+  max-height:0; overflow:hidden; opacity:0;
+  padding:0 0 0 97px;
+  transition:max-height .55s ease, opacity .4s ease, padding .55s ease;
+}
+.manifesto-item.open .manifesto-body {
+  max-height:420px; opacity:1; padding:0 0 36px 97px;
+}
+.manifesto-body p { margin-bottom:12px; color:var(--muted); font-size:14px; line-height:2.1; }
+
+/* Journal */
+.journal { padding:150px 6vw; background:var(--paper-2); }
+.journal-grid {
+  max-width:1220px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+}
+.journal-card {
+  min-height:540px; display:flex; flex-direction:column;
+}
+.journal-photo {
+  aspect-ratio:4/5; margin-bottom:23px; position:relative;
+  background:linear-gradient(145deg,#A88F78,#705A48);
+}
+.journal-photo::after {
+  content:"PHOTO"; position:absolute; top:17px; right:19px;
+  color:rgba(255,255,255,.38); font-family:var(--serif-en); font-size:10px; letter-spacing:.14em;
+}
+.journal-card .meta { color:var(--chestnut-3); font-family:var(--serif-en); font-size:12px; }
+.journal-card h3 {
+  margin:8px 0 12px; font-family:var(--serif-ko); font-size:19px; font-weight:400; line-height:1.7;
+}
+.journal-card p { color:var(--muted); font-size:13px; line-height:1.9; }
+
+/* Contact */
+.contact { padding:150px 6vw; background:var(--cream); }
+.contact-quote {
+  max-width:980px; margin:0 auto 100px; text-align:center;
+}
+.contact-quote .big-en { margin-bottom:30px; }
+.contact-quote blockquote {
+  font-family:var(--serif-ko); font-size:clamp(26px,3.5vw,45px); line-height:1.8;
+}
+.contact-grid {
+  max-width:1120px; margin:0 auto; display:grid; grid-template-columns:.8fr 1.2fr; gap:80px;
+}
+.contact-copy h3 {
+  margin-bottom:20px; color:var(--chestnut); font-family:var(--serif-en); font-size:42px; font-weight:400;
+}
+.contact-copy p { color:var(--muted); font-size:14px; line-height:2; }
+.contact-links { margin-top:28px; display:flex; flex-direction:column; gap:8px; font-size:13px; }
+.form { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.field.full { grid-column:1/-1; }
+.field label { display:block; margin-bottom:6px; color:var(--muted); font-size:11px; }
+.field input,.field select,.field textarea {
+  width:100%; padding:12px 8px; border:0; border-bottom:1px solid var(--chestnut);
+  background:transparent; outline:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus { border-bottom-color:var(--brass); }
+.field textarea { min-height:125px; resize:vertical; }
+.form-note { grid-column:1/-1; color:var(--muted); font-size:11px; line-height:1.8; margin-top:4px; }
+.form-actions { grid-column:1/-1; margin-top:10px; }
+
+/* Footer */
+footer { position:relative; overflow:hidden; padding:80px 30px 55px; background:var(--chestnut); color:var(--paper); }
+footer::before {
+  content:""; position:absolute; width:410px; aspect-ratio:1; right:-85px; bottom:-130px;
+  background:url("data:image/png;base64,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") center/contain no-repeat; opacity:.045;
+}
+.footer-inner { position:relative; z-index:1; max-width:1200px; margin:0 auto; }
+.footer-top { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+.footer-brand { font-family:var(--serif-en); font-size:clamp(42px,5vw,70px); line-height:1; }
+.footer-info { color:#E7D9CA; font-size:12px; line-height:2; }
+.footer-info a { border-bottom:1px solid rgba(231,217,202,.38); }
+.footer-bottom {
+  margin-top:58px; padding-top:20px; border-top:1px solid rgba(251,247,239,.2);
+  color:#D7C6B6; font-size:10px; letter-spacing:.05em;
+}
+
+/* Modal */
+.modal-overlay {
+  position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center;
+  padding:24px; background:rgba(42,33,27,.52);
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  width:min(100%,430px); padding:42px 32px 32px; background:var(--paper); text-align:center;
+}
+.modal h3 { margin-bottom:13px; font-family:var(--serif-ko); font-size:20px; font-weight:400; }
+.modal p { color:var(--muted); font-size:13px; line-height:1.9; }
+.modal .btn { width:100%; margin-top:25px; }
+
+@media(max-width:980px) {
+  .cover { grid-template-columns:1fr; }
+  .cover-brand,.cover-copy { min-height:720px; }
+  .stay-row,.stay-row.reverse { grid-template-columns:1fr; }
+  .stay-row.reverse .stay-photo,.stay-row.reverse .stay-content { order:initial; }
+  .stay-photo,.stay-content { min-height:580px; }
+  .work-area { grid-template-columns:65px 1fr; }
+  .work-area p { grid-column:2; }
+  .journal-grid { grid-template-columns:1fr 1fr; }
+  .contact-grid { grid-template-columns:1fr; }
+}
+@media(max-width:760px) {
+  :root { --header:70px; }
+  .page-wrap { padding:0 20px; }
+  .nav-links { display:none; }
+  .nav-toggle { display:block; }
+  .cover-brand,.cover-copy { min-height:calc(100vh - var(--header)); }
+  .cover-copy { padding:70px 25px; }
+  .cover-actions { width:100%; flex-direction:column; }
+  .cover-actions .btn { width:100%; }
+  .statement { min-height:80vh; padding:100px 24px; }
+  .stay-section,.works-section,.philosophy,.journal,.contact { padding:105px 24px; }
+  .stay-content { padding:65px 30px; }
+  .work-area { grid-template-columns:46px 1fr; gap:15px; }
+  .principle { grid-template-columns:48px 1fr; gap:15px; }
+  .manifesto-toggle { grid-template-columns:48px 1fr 20px; gap:15px; }
+  .manifesto-body,.manifesto-item.open .manifesto-body { padding-left:63px; }
+  .journal-grid { grid-template-columns:1fr; }
+  .form { grid-template-columns:1fr; }
+  .field.full,.form-note,.form-actions { grid-column:auto; }
+  .footer-top { grid-template-columns:1fr; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { animation:none!important; transition:none!important; }
+  .reveal { opacity:1; transform:none; }
+  .intro-screen { display:none; }
 }
 </style>
 </head>
 
-<body>
+<body class="intro-open">
+<div class="intro-screen" id="introScreen" aria-hidden="true">
+  <div class="intro-mark"></div>
+  <div class="intro-word"><span>BAMBAM</span><span>WORKS</span></div>
+  <button class="intro-skip" id="introSkip" type="button">SKIP</button>
+</div>
+
 <header>
-  <div class="wrap nav">
+  <div class="page-wrap nav">
     <a class="logo" href="#top">BAMBAM WORKS</a>
     <nav class="nav-links" aria-label="주요 메뉴">
       <a href="#stay">STAY</a>
       <a href="#works">WORKS</a>
       <a href="#philosophy">PHILOSOPHY</a>
+      <a href="#journal">JOURNAL</a>
       <a href="#contact">CONTACT</a>
     </nav>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기">☰</button>
@@ -340,142 +504,198 @@ footer{padding:64px 28px;background:var(--brown);color:var(--paper)}
     <a href="#stay">STAY</a>
     <a href="#works">WORKS</a>
     <a href="#philosophy">PHILOSOPHY</a>
+    <a href="#journal">JOURNAL</a>
     <a href="#contact">CONTACT</a>
   </nav>
 </header>
 
 <main>
-  <section class="hero" id="top">
-    <div class="hero-visual">
-      <h1>BAMBAM<em>WORKS</em></h1>
+  <section class="cover" id="top">
+    <div class="cover-brand">
+      <h1><span>BAMBAM</span><span>WORKS</span></h1>
     </div>
-    <div class="hero-copy">
-      <div class="kicker">BAMBAM WORKS</div>
+    <div class="cover-copy">
+      <div class="eyebrow">BAMBAM WORKS</div>
       <h2>공간의 모습보다,<br>그 안에서 보내게 될 시간을<br>먼저 생각합니다.</h2>
-      <p>밤밤웍스는 공간을 만드는 브랜드이기 전에, 일하는 태도와 기준을 지켜가는 사람들의 기록입니다.<br>겉모습보다, 오래 유지될 수 있는 구조와 기준을 먼저 설계합니다.</p>
-      <div class="hero-actions">
+      <p>밤밤웍스는 공간을 만드는 브랜드이기 전에, 일하는 태도와 기준을 지켜가는 사람들의 기록입니다.<br>겉모습보다 오래 유지될 수 있는 구조와 기준을 먼저 설계합니다.</p>
+      <div class="cover-actions">
         <a class="btn dark" href="#stay">STAY 보기</a>
         <a class="btn" href="#works">WORKS 보기</a>
       </div>
-      <a class="text-link" href="#philosophy">PHILOSOPHY 읽기</a>
+      <a class="cover-link" href="#philosophy">PHILOSOPHY 읽기</a>
     </div>
   </section>
 
-  <section class="section" id="stay">
-    <div class="section-head">
-      <span class="en">STAY</span>
-      <h2>밤밤웍스가 운영하는 머무름의 공간들입니다</h2>
+  <section class="statement">
+    <div class="statement-inner reveal">
+      <div class="eyebrow">Our Point of View</div>
+      <blockquote>좋은 공간은 한 번의 장면보다,<br>시간이 지나도 편안한 상태를 남깁니다.</blockquote>
+      <p>우리는 공간의 시작부터 완성 이후의 운영까지 하나의 흐름으로 바라봅니다.</p>
     </div>
-    <div class="stay-grid">
-      <article class="stay-card">
-        <div>
-          <div class="meta">Gangneung · Private Stay</div>
+  </section>
+
+  <section class="editorial-image reveal" aria-label="밤밤웍스 대표 사진 자리">
+    <div class="editorial-copy">
+      <div class="eyebrow">A Place That Lasts</div>
+      <h2>Space,<br>then Time.</h2>
+      <p>이 영역에는 밤밤을 대표하는 한 장의 사진을 넣습니다. 정원 전체보다 ‘사람이 머무는 상태’가 느껴지는 창, 빛, 의자, 테이블 같은 장면을 추천합니다.</p>
+    </div>
+  </section>
+
+  <section class="stay-section" id="stay">
+    <div class="section-head reveal">
+      <div class="big-en">STAY</div>
+      <h2>밤밤웍스가 직접 만들고 운영하며<br>기준을 확인하는 머무름의 공간들입니다.</h2>
+    </div>
+
+    <div class="stay-list">
+      <article class="stay-row reveal">
+        <div class="stay-photo"></div>
+        <div class="stay-content">
+          <div class="stay-meta">Gangneung · Private Stay</div>
           <h3>STAY BAMBAM</h3>
-          <p>오래된 시골집을 다시 만들고, 정원과 계절이 머무는 하루를 완성한 독채 스테이.</p>
-          <div class="card-actions">
+          <p>오래된 시골집을 다시 만들고, 정원과 계절이 머무는 하루를 완성한 독채 스테이. 공간 기획부터 리모델링, 고객 경험과 실제 운영까지 이어지는 밤밤웍스의 첫 공간입니다.</p>
+          <div class="stay-actions">
             <a class="btn dark" href="https://booking.naver.com/booking/3/bizes/839264" target="_blank" rel="noopener noreferrer">예약하기</a>
             <a class="btn" href="https://blog.naver.com/stay_bambam" target="_blank" rel="noopener noreferrer">소개보기</a>
+            <a class="btn" href="https://www.instagram.com/staybambam/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </div>
       </article>
-      <article class="stay-card">
-        <div>
-          <div class="meta">Gangneung · Apartment Stay</div>
+
+      <article class="stay-row reverse reveal">
+        <div class="stay-photo"></div>
+        <div class="stay-content">
+          <div class="stay-meta">Gangneung · Apartment Stay · Coming Soon</div>
           <h3>STAY LILLE</h3>
-          <p>강릉 도심에서 하루의 속도를 정돈하도록 기획한 코펜하겐 모던 아파트먼트 스테이.</p>
-          <div class="card-actions">
-            <button class="btn dark" type="button" onclick="showNotice('STAY LILLE','현재 준비 중입니다. 예약 일정이 확정되면 이곳에서 안내합니다.')">예약하기</button>
-            <button class="btn" type="button" onclick="showNotice('STAY LILLE','공간 소개 페이지를 준비하고 있습니다.')">소개보기</button>
+          <p>강릉 도심에서 하루의 속도를 정돈하도록 기획한 아파트먼트 스테이. 밤밤과는 다른 모습이지만, 사람이 머무는 시간과 운영의 지속성을 먼저 보는 기준은 같습니다.</p>
+          <div class="stay-actions">
+            <button class="btn dark" type="button" onclick="showNotice('STAY LILLE','현재 준비 중입니다. 오픈 일정이 정해지면 이곳에서 안내합니다.')">Coming Soon</button>
           </div>
         </div>
       </article>
     </div>
   </section>
 
-  <section class="section alt" id="works">
-    <div class="section-head">
-      <span class="en">WORKS</span>
-      <h2>밤밤웍스가 공간을 만드는 방식</h2>
-    </div>
-    <div class="works-intro">
+  <section class="works-section" id="works">
+    <div class="works-intro reveal">
+      <div class="big-en">WORKS</div>
       <p>공간을 ‘예쁘게’만 만드는 것이 아니라,<br>오래 유지될 수 있는 구조와 기준까지 설계합니다.</p>
     </div>
-    <div class="areas">
-      <article class="area"><div class="num">1</div><h3>공간 기획</h3><p>공간의 목적과 사용자를 정의하고, 콘셉트와 공간별 역할을 정리합니다.</p></article>
-      <article class="area"><div class="num">2</div><h3>동선 및 경험 설계</h3><p>사람이 들어오고 머물고 나가는 흐름이 자연스럽게 이어지도록 설계합니다.</p></article>
-      <article class="area"><div class="num">3</div><h3>운영 구조 설계</h3><p>체크인, 청소, 소모품, 관리 루틴까지 실제 운영이 가능한 구조를 만듭니다.</p></article>
-      <article class="area"><div class="num">4</div><h3>브랜딩 방향 설계</h3><p>공간의 이름과 이야기, 촬영과 콘텐츠가 같은 방향을 바라보도록 기준을 세웁니다.</p></article>
-      <article class="area"><div class="num">5</div><h3>리모델링 방향 설계</h3><p>컨셉, 마감, 가구와 조명의 기준을 정하고 현장에서 방향이 흐트러지지 않도록 확인합니다.</p></article>
-      <article class="area"><div class="num">6</div><h3>프로젝트 관리</h3><p>전문 파트너가 같은 기준으로 움직일 수 있도록 과정과 결정 사항을 조율합니다.</p></article>
+
+    <div class="work-areas">
+      <article class="work-area reveal"><div class="num">1</div><h3>공간 기획</h3><p>공간의 목적과 사용자를 먼저 정의하고, 콘셉트와 공간별 역할을 정리합니다.</p></article>
+      <article class="work-area reveal"><div class="num">2</div><h3>동선 및 경험 설계</h3><p>사람이 들어오고 머물고 나가는 흐름이 자연스럽게 이어지도록 사용 경험을 설계합니다.</p></article>
+      <article class="work-area reveal"><div class="num">3</div><h3>운영 구조 설계</h3><p>청소, 소모품, 안내, 관리 루틴까지 공간이 실제로 오래 운영될 수 있는 구조를 만듭니다.</p></article>
+      <article class="work-area reveal"><div class="num">4</div><h3>브랜딩 방향 설계</h3><p>공간의 이름과 이야기, 사인과 촬영·콘텐츠가 같은 방향을 바라보도록 기준을 세웁니다.</p></article>
+      <article class="work-area reveal"><div class="num">5</div><h3>리모델링 방향 설계</h3><p>콘셉트, 마감, 가구와 조명의 기준을 세우고 현장에서 방향이 흐트러지지 않도록 확인합니다.</p></article>
+      <article class="work-area reveal"><div class="num">6</div><h3>프로젝트 조율</h3><p>설계·시공 등 각 전문 파트너가 같은 기준으로 움직일 수 있도록 과정과 결정 사항을 조율합니다.</p></article>
     </div>
 
-    <h3 class="portfolio-title">Portfolio</h3>
-    <div class="portfolio-grid">
-      <article class="project"><div><div class="tag">Stay · Operation</div><h3>STAY BAMBAM</h3><p>기획부터 리모델링, 브랜딩과 실제 운영까지 이어진 프로젝트.</p></div></article>
-      <article class="project"><div><div class="tag">Stay · Opening</div><h3>STAY LILLE</h3><p>도심형 스테이의 콘셉트와 사용 경험, 운영 구조를 함께 설계한 프로젝트.</p></div></article>
-      <article class="project"><div><div class="tag">Commercial · Future</div><h3>NAIL BAMBAM</h3><p>작업자의 동선과 고객의 경험, 브랜드의 인상을 연결하는 작은 상업공간.</p></div></article>
+    <div class="projects">
+      <h2 class="projects-title reveal">Selected Works</h2>
+      <article class="project-feature reveal">
+        <div class="project-copy">
+          <div class="meta">Stay · Planning · Remodeling · Operation</div>
+          <h3>STAY BAMBAM</h3>
+          <p>낡은 집에서 시작해 한 팀의 하루가 안정적으로 이어지는 공간이 되기까지. 공간의 시작, 운영, 고객 경험을 하나의 기준으로 연결했습니다.</p>
+        </div>
+      </article>
+      <article class="project-feature reveal">
+        <div class="project-copy">
+          <div class="meta">Stay · Planning · Interior · Opening</div>
+          <h3>STAY LILLE</h3>
+          <p>도심의 이동성과 자유로움을 담으면서도 관리와 운영이 지속될 수 있도록 설계한 새로운 스테이 프로젝트입니다.</p>
+        </div>
+      </article>
+      <article class="project-feature reveal">
+        <div class="project-copy">
+          <div class="meta">Commercial · Brand · Space</div>
+          <h3>NAIL BAMBAM</h3>
+          <p>작업자의 동선과 고객이 머무는 경험, 작은 브랜드의 인상을 한 공간 안에서 연결하는 상업공간 프로젝트입니다.</p>
+        </div>
+      </article>
+      <div style="text-align:center;margin-top:54px">
+        <a class="btn dark" href="#contact">프로젝트 문의하기</a>
+      </div>
     </div>
-    <div class="works-cta"><a class="btn dark" href="#contact">프로젝트 문의하기</a></div>
   </section>
 
-  <section class="section" id="philosophy">
-    <div class="section-head">
-      <span class="en">PHILOSOPHY</span>
-      <h2>우리는 이렇게 일합니다</h2>
-      <p>무엇을 만드는가보다 어떤 기준으로 만들고 오래 지키는가를 중요하게 생각합니다.</p>
-    </div>
-    <div class="philosophy-list">
-      <article class="philosophy-item"><div class="num">1</div><div><h3>결과보다 상태를 먼저 봅니다</h3><p>처음의 인상보다 시간이 흐른 뒤에도 편안함이 유지되는 상태를 중요하게 생각합니다.</p></div></article>
-      <article class="philosophy-item"><div class="num">2</div><div><h3>감성만으로 공간을 말하지 않습니다</h3><p>분위기보다 먼저 사람의 움직임과 사용의 흐름을 살핍니다.</p></div></article>
-      <article class="philosophy-item"><div class="num">3</div><div><h3>기준을 다른 사람에게 맡기지 않습니다</h3><p>보이지 않는 부분일수록 직접 확인하고 선택한 결과에 책임을 집니다.</p></div></article>
-      <article class="philosophy-item"><div class="num">4</div><div><h3>오래 지킬 수 있는 쪽을 선택합니다</h3><p>유행보다 지속성을, 순간의 만족보다 반복 가능한 기준을 선택합니다.</p></div></article>
-      <article class="philosophy-item"><div class="num">5</div><div><h3>공간보다 신뢰를 남기고 싶습니다</h3><p>공간의 개수보다 어떤 태도로 일해 왔는지가 자연스럽게 전해지기를 바랍니다.</p></div></article>
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-head reveal">
+      <div class="big-en">PHILOSOPHY</div>
+      <p>무엇을 만드는가보다 어떤 기준으로 만들고, 그 기준을 얼마나 오래 지키는가를 중요하게 생각합니다.</p>
     </div>
 
-    <div class="manifesto">
-      <h3 class="manifesto-title">Manifesto</h3>
-      <article class="manifesto-item open">
-        <button class="manifesto-toggle" type="button" aria-expanded="true"><span class="num">1</span><h3>사람의 하루에서 시작합니다</h3><span class="plus">＋</span></button>
-        <div class="manifesto-body"><p>우리는 공간의 형태를 정하기 전에 그 안에서 시간을 보내게 될 사람을 먼저 떠올립니다.</p><p>언제 들어오고, 어디에서 머물며, 무엇을 불편해할 수 있는지 살핍니다.</p></div>
+    <div class="principles">
+      <article class="principle reveal"><div class="num">1</div><div><h3>결과보다 상태를 먼저 봅니다</h3><p>처음의 인상보다 시간이 흐른 뒤에도 편안함이 유지되는 상태를 중요하게 생각합니다.</p></div></article>
+      <article class="principle reveal"><div class="num">2</div><div><h3>감성만으로 공간을 말하지 않습니다</h3><p>분위기보다 먼저 사람의 움직임과 사용의 흐름을 살핍니다.</p></div></article>
+      <article class="principle reveal"><div class="num">3</div><div><h3>기준을 다른 사람에게 맡기지 않습니다</h3><p>보이지 않는 부분일수록 직접 확인하고 선택한 결과에 책임을 집니다.</p></div></article>
+      <article class="principle reveal"><div class="num">4</div><div><h3>오래 지킬 수 있는 쪽을 선택합니다</h3><p>유행보다 지속성을, 순간의 만족보다 반복 가능한 기준을 선택합니다.</p></div></article>
+      <article class="principle reveal"><div class="num">5</div><div><h3>공간보다 신뢰를 남기고 싶습니다</h3><p>공간의 개수보다 어떤 태도로 일해 왔는지가 자연스럽게 전해지기를 바랍니다.</p></div></article>
+    </div>
+
+    <div class="manifesto reveal">
+      <h2 class="manifesto-title">Manifesto</h2>
+      <article class="manifesto-item">
+        <button class="manifesto-toggle" type="button" aria-expanded="false"><span class="num">1</span><h3>사람의 하루에서 시작합니다</h3><span class="plus">＋</span></button>
+        <div class="manifesto-body"><p>우리는 공간의 형태를 정하기 전에 그 안에서 시간을 보내게 될 사람을 먼저 떠올립니다.</p><p>언제 들어오고, 어디에서 머물며, 무엇을 불편해할 수 있는지 살핍니다.</p><p>좋은 공간은 보기 좋은 장면에서 끝나지 않고, 설명이 없어도 자연스럽게 사용할 수 있어야 한다고 생각합니다.</p></div>
       </article>
       <article class="manifesto-item">
         <button class="manifesto-toggle" type="button" aria-expanded="false"><span class="num">2</span><h3>흐름을 먼저 설계합니다</h3><span class="plus">＋</span></button>
-        <div class="manifesto-body"><p>가구와 조명, 재료를 고르기 전에 사람이 움직이는 순서와 시선이 머무는 곳을 먼저 정리합니다.</p></div>
+        <div class="manifesto-body"><p>가구와 조명, 재료를 고르기 전에 사람이 움직이는 순서와 시선이 머무는 곳을 먼저 정리합니다.</p><p>그 흐름 위에 감각을 더해 장면과 생활이 서로 어긋나지 않도록 합니다.</p></div>
       </article>
       <article class="manifesto-item">
         <button class="manifesto-toggle" type="button" aria-expanded="false"><span class="num">3</span><h3>직접 확인하고 결정합니다</h3><span class="plus">＋</span></button>
-        <div class="manifesto-body"><p>도면과 현장, 완성된 모습과 실제 사용 사이의 차이를 직접 확인합니다.</p></div>
+        <div class="manifesto-body"><p>도면과 현장, 완성된 모습과 실제 사용 사이의 차이를 직접 확인합니다.</p><p>보이지 않는 부분일수록 한 번 더 살피고, 선택한 결과에 책임을 지는 방식으로 일합니다.</p></div>
       </article>
       <article class="manifesto-item">
         <button class="manifesto-toggle" type="button" aria-expanded="false"><span class="num">4</span><h3>지속 가능한 방식을 선택합니다</h3><span class="plus">＋</span></button>
-        <div class="manifesto-body"><p>예산과 공정, 청소와 관리, 운영자의 리듬까지 함께 고려합니다.</p></div>
+        <div class="manifesto-body"><p>예산과 공정, 청소와 관리, 운영자의 리듬까지 함께 고려합니다.</p><p>공간을 오래 지키기 위해서는 아름다움과 지속 가능성이 같은 방향을 바라봐야 한다고 생각합니다.</p></div>
       </article>
       <article class="manifesto-item">
         <button class="manifesto-toggle" type="button" aria-expanded="false"><span class="num">5</span><h3>결과보다 신뢰를 남깁니다</h3><span class="plus">＋</span></button>
-        <div class="manifesto-body"><p>처음의 약속이 완성 이후에도 지켜지고, 시간이 지나도 같은 기준으로 관리되는 경험을 만들고 싶습니다.</p></div>
+        <div class="manifesto-body"><p>처음의 약속이 완성 이후에도 지켜지고, 시간이 지나도 같은 기준으로 관리되는 경험을 만들고 싶습니다.</p><p>그 반복이 결국 밤밤웍스를 기억하게 하는 신뢰가 된다고 믿습니다.</p></div>
       </article>
     </div>
   </section>
 
-  <section class="section alt" id="contact">
-    <div class="section-head">
-      <span class="en">CONTACT</span>
-      <h2>프로젝트 문의</h2>
+  <section class="journal" id="journal">
+    <div class="section-head reveal">
+      <div class="big-en">JOURNAL</div>
+      <h2>공간을 만들며 생긴 생각과 기준을 기록합니다.</h2>
+      <p>사진과 완성된 결과뿐 아니라, 무엇을 고민했고 왜 그렇게 선택했는지를 남깁니다.</p>
+    </div>
+    <div class="journal-grid">
+      <article class="journal-card reveal"><div class="journal-photo"></div><div class="meta">Living Space</div><h3>보기 좋은 집과 편안한 집의 차이</h3><p>오래 머물수록 불편이 줄어드는 공간은 어떤 상태인지 생각합니다.</p></article>
+      <article class="journal-card reveal"><div class="journal-photo"></div><div class="meta">Commercial Space</div><h3>운영자가 지치지 않아야 공간도 오래갑니다</h3><p>감각과 운영 구조가 함께 가야 하는 이유를 실제 경험으로 기록합니다.</p></article>
+      <article class="journal-card reveal"><div class="journal-photo"></div><div class="meta">Stay Bambam</div><h3>정원을 매 계절 다시 가꾸는 이유</h3><p>계절에 따라 변하는 공간을 유지한다는 것에 대해 기록합니다.</p></article>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-quote reveal">
+      <div class="big-en">CONTACT</div>
+      <blockquote>좋은 공간은<br>좋은 기준에서 시작된다고 믿습니다.</blockquote>
     </div>
     <div class="contact-grid">
-      <div class="contact-copy">
+      <div class="contact-copy reveal">
         <h3>Project Inquiry</h3>
-        <p>기획 단계부터도 가능합니다. 다만 운영 대행이 아니라, 운영이 가능해지는 구조 설계가 중심입니다.</p>
+        <p>기획 단계부터도 가능합니다. 다만 운영 대행이 아니라, 공간이 실제로 운영될 수 있는 구조와 기준을 설계하는 일이 중심입니다.</p>
+        <div class="contact-links">
+          <a href="https://talk.naver.com/ct/w5xjvi?frm=pnmb&frm=nmb_detail#nafullscreen" target="_blank" rel="noopener noreferrer">Naver Talk ↗</a>
+          <a href="https://www.instagram.com/staybambam/" target="_blank" rel="noopener noreferrer">Instagram · @staybambam ↗</a>
+        </div>
       </div>
-      <form class="form" id="projectForm">
-        <div class="field"><label for="name">성함 / 업체명</label><input id="name" name="name" type="text" required></div>
-        <div class="field"><label for="contactInfo">연락처</label><input id="contactInfo" name="contactInfo" type="text" placeholder="이메일 또는 전화" required></div>
+      <form class="form reveal" id="projectForm">
+        <div class="field"><label for="name">성함 / 업체명</label><input id="name" name="name" required></div>
+        <div class="field"><label for="contactInfo">연락처</label><input id="contactInfo" name="contactInfo" placeholder="이메일 또는 전화" required></div>
         <div class="field"><label for="spaceType">공간 유형</label><select id="spaceType" name="spaceType" required><option value="">선택해 주세요</option><option>주거</option><option>숙박</option><option>상업</option><option>기타</option></select></div>
-        <div class="field"><label for="schedule">일정</label><input id="schedule" name="schedule" type="text" placeholder="대략적인 일정"></div>
-        <div class="field"><label for="budget">예산</label><input id="budget" name="budget" type="text" placeholder="대략적인 예산"></div>
+        <div class="field"><label for="schedule">일정</label><input id="schedule" name="schedule" placeholder="대략적인 일정"></div>
+        <div class="field"><label for="budget">예산</label><input id="budget" name="budget" placeholder="대략적인 예산"></div>
         <div class="field"><label for="status">현재 상태</label><select id="status" name="status"><option>오픈 전</option><option>운영 중</option><option>리모델링 예정</option></select></div>
         <div class="field full"><label for="message">요청 내용</label><textarea id="message" name="message" required></textarea></div>
-        <p class="form-note">제출 버튼을 누르면 네이버 톡톡으로 연결됩니다. 작성한 내용을 복사해 함께 보내주세요.</p>
+        <p class="form-note">제출하면 작성 내용이 클립보드에 복사되고 네이버 톡톡이 열립니다.</p>
         <div class="form-actions"><button class="btn dark" type="submit">프로젝트 문의하기</button></div>
       </form>
     </div>
@@ -483,10 +703,17 @@ footer{padding:64px 28px;background:var(--brown);color:var(--paper)}
 </main>
 
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">BAMBAM WORKS</div>
-    <div class="footer-info">Instagram · @staybambam<br>Email · 준비 중<br>사업자 정보 · 준비 중<br>이용약관 · 개인정보처리방침</div>
-    <div class="footer-copy">© 2026 BAMBAM WORKS</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">BAMBAM<br>WORKS</div>
+      <div class="footer-info">
+        Instagram · <a href="https://www.instagram.com/staybambam/" target="_blank" rel="noopener noreferrer">@staybambam</a><br>
+        Naver Blog · <a href="https://blog.naver.com/stay_bambam" target="_blank" rel="noopener noreferrer">stay_bambam</a><br>
+        Project · <a href="https://talk.naver.com/ct/w5xjvi?frm=pnmb&frm=nmb_detail#nafullscreen" target="_blank" rel="noopener noreferrer">Naver Talk</a><br>
+        Email · 준비 중
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 BAMBAM WORKS · Space, Time, and the Standards That Last.</div>
   </div>
 </footer>
 
@@ -499,44 +726,71 @@ footer{padding:64px 28px;background:var(--brown);color:var(--paper)}
 </div>
 
 <script>
-const navToggle=document.getElementById('navToggle');
-const mobileMenu=document.getElementById('mobileMenu');
-const noticeModal=document.getElementById('noticeModal');
-const talkUrl='https://talk.naver.com/ct/w5xjvi?frm=pnmb&frm=nmb_detail#nafullscreen';
+const intro = document.getElementById('introScreen');
+const introSkip = document.getElementById('introSkip');
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const noticeModal = document.getElementById('noticeModal');
+const talkUrl = 'https://talk.naver.com/ct/w5xjvi?frm=pnmb&frm=nmb_detail#nafullscreen';
 
-navToggle.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
-document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+function closeIntro() {
+  intro.classList.add('hide');
+  document.body.classList.remove('intro-open');
+  setTimeout(() => intro.remove(), 950);
+}
+introSkip.addEventListener('click', closeIntro);
+window.addEventListener('load', () => setTimeout(closeIntro, 1750));
 
-document.querySelectorAll('.manifesto-toggle').forEach(button=>{
-  button.addEventListener('click',()=>{
-    const item=button.closest('.manifesto-item');
-    const open=item.classList.toggle('open');
-    button.setAttribute('aria-expanded',open?'true':'false');
+navToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+
+document.querySelectorAll('.manifesto-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.closest('.manifesto-item');
+    const open = item.classList.toggle('open');
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 });
 
-function showNotice(title,body){
-  document.getElementById('noticeTitle').textContent=title;
-  document.getElementById('noticeBody').textContent=body;
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+function showNotice(title, body) {
+  document.getElementById('noticeTitle').textContent = title;
+  document.getElementById('noticeBody').textContent = body;
   noticeModal.classList.add('open');
 }
-function closeNotice(){noticeModal.classList.remove('open')}
-noticeModal.addEventListener('click',e=>{if(e.target===noticeModal)closeNotice()});
+function closeNotice() { noticeModal.classList.remove('open'); }
+noticeModal.addEventListener('click', e => { if (e.target === noticeModal) closeNotice(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNotice(); });
 
-document.getElementById('projectForm').addEventListener('submit',event=>{
+document.getElementById('projectForm').addEventListener('submit', async event => {
   event.preventDefault();
-  const form=new FormData(event.currentTarget);
-  const summary=[
-    '성함/업체명: '+(form.get('name')||''),
-    '연락처: '+(form.get('contactInfo')||''),
-    '공간 유형: '+(form.get('spaceType')||''),
-    '일정: '+(form.get('schedule')||''),
-    '예산: '+(form.get('budget')||''),
-    '현재 상태: '+(form.get('status')||''),
-    '요청 내용: '+(form.get('message')||'')
+  const form = new FormData(event.currentTarget);
+  const summary = [
+    '성함/업체명: ' + (form.get('name') || ''),
+    '연락처: ' + (form.get('contactInfo') || ''),
+    '공간 유형: ' + (form.get('spaceType') || ''),
+    '일정: ' + (form.get('schedule') || ''),
+    '예산: ' + (form.get('budget') || ''),
+    '현재 상태: ' + (form.get('status') || ''),
+    '요청 내용: ' + (form.get('message') || '')
   ].join('\n');
-  if(navigator.clipboard) navigator.clipboard.writeText(summary).catch(()=>{});
-  window.open(talkUrl,'_blank','noopener');
+
+  try {
+    await navigator.clipboard.writeText(summary);
+  } catch (e) {}
+  window.open(talkUrl, '_blank', 'noopener');
 });
 </script>
 </body>
