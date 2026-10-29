@@ -786,14 +786,15 @@ footer::before {
 
 
 /* PEOPLE introduction — standalone link to the founder story */
-.people-preview{background:var(--paper-2);padding:110px 30px 116px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.people-preview-inner{width:min(100%,1050px);margin:auto;display:grid;grid-template-columns:220px 1fr;gap:clamp(32px,6vw,100px);align-items:start}
-.people-preview .big-en{font-family:var(--serif-en);font-size:clamp(54px,8vw,106px);font-weight:400;letter-spacing:-.055em;line-height:1;color:var(--chestnut)}
-.people-preview .people-role{font-size:12px;letter-spacing:.14em;color:var(--chestnut-3);margin:4px 0 24px}
-.people-preview h2{font-family:var(--serif-ko);font-size:clamp(23px,3vw,34px);font-weight:400;line-height:1.65;letter-spacing:-.045em;margin:0 0 22px}
-.people-preview p{font-size:15px;color:var(--muted);line-height:2;word-break:keep-all;margin-bottom:26px}
+.people-preview{background:var(--paper-2);padding:88px 32px 96px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.people-preview-inner{width:min(100%,1000px);margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0}
+.people-preview .big-en{display:block;position:static;transform:none;width:auto;max-width:100%;font-family:var(--serif-en);font-size:clamp(52px,7vw,88px);font-weight:400;letter-spacing:-.055em;line-height:1.15;color:var(--chestnut);margin:0 0 40px;white-space:nowrap}
+.people-preview-inner>div:last-child{width:100%;max-width:770px;min-width:0}
+.people-preview .people-role{font-size:12px;letter-spacing:.13em;color:var(--chestnut-3);margin:0 0 19px}
+.people-preview h2{font-family:var(--serif-ko);font-size:clamp(23px,2.7vw,32px);font-weight:400;line-height:1.7;letter-spacing:-.045em;margin:0 0 25px;word-break:keep-all}
+.people-preview p{font-size:15px;color:var(--muted);line-height:2;word-break:keep-all;margin:0 0 27px}
 .people-preview .people-more{display:inline-block;border-bottom:1px solid var(--chestnut);padding:0 0 6px;font-size:13px;letter-spacing:.03em;color:var(--chestnut)}
-@media(max-width:720px){.people-preview{padding:76px 24px 82px}.people-preview-inner{grid-template-columns:1fr;gap:26px}.people-preview .big-en{font-size:68px}.people-preview p{font-size:14px}}
+@media(max-width:720px){.people-preview{padding:66px 24px 76px}.people-preview .big-en{font-size:clamp(50px,13vw,70px);margin-bottom:30px}.people-preview p{font-size:14px}.people-preview h2{font-size:clamp(21px,5vw,27px)}}
 </style>
 <style>
 .projects-grid > * { height: 500px; }
