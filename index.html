@@ -784,6 +784,16 @@ footer::before {
   }
 }
 
+
+/* PEOPLE introduction — standalone link to the founder story */
+.people-preview{background:var(--paper-2);padding:110px 30px 116px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.people-preview-inner{width:min(100%,1050px);margin:auto;display:grid;grid-template-columns:220px 1fr;gap:clamp(32px,6vw,100px);align-items:start}
+.people-preview .big-en{font-family:var(--serif-en);font-size:clamp(54px,8vw,106px);font-weight:400;letter-spacing:-.055em;line-height:1;color:var(--chestnut)}
+.people-preview .people-role{font-size:12px;letter-spacing:.14em;color:var(--chestnut-3);margin:4px 0 24px}
+.people-preview h2{font-family:var(--serif-ko);font-size:clamp(23px,3vw,34px);font-weight:400;line-height:1.65;letter-spacing:-.045em;margin:0 0 22px}
+.people-preview p{font-size:15px;color:var(--muted);line-height:2;word-break:keep-all;margin-bottom:26px}
+.people-preview .people-more{display:inline-block;border-bottom:1px solid var(--chestnut);padding:0 0 6px;font-size:13px;letter-spacing:.03em;color:var(--chestnut)}
+@media(max-width:720px){.people-preview{padding:76px 24px 82px}.people-preview-inner{grid-template-columns:1fr;gap:26px}.people-preview .big-en{font-size:68px}.people-preview p{font-size:14px}}
 </style>
 <style>
 .projects-grid > * { height: 500px; }
@@ -882,6 +892,7 @@ html,body{height:auto!important;min-height:100%!important;overflow-y:auto!import
 <nav aria-label="주요 메뉴" class="nav-links">
 <a href="#stay">STAY</a>
 <a href="#works">WORKS</a>
+<a href="#people">PEOPLE</a>
 <a href="#philosophy">PHILOSOPHY</a>
 <a href="#journal">JOURNAL</a>
 <a href="#contact">CONTACT</a>
@@ -891,6 +902,7 @@ html,body{height:auto!important;min-height:100%!important;overflow-y:auto!import
 <nav aria-label="모바일 메뉴" class="mobile-menu" id="mobileMenu">
 <a href="#stay">STAY</a>
 <a href="#works">WORKS</a>
+<a href="#people">PEOPLE</a>
 <a href="#philosophy">PHILOSOPHY</a>
 <a href="#journal">JOURNAL</a>
 <a href="#contact">CONTACT</a>
@@ -957,6 +969,17 @@ html,body{height:auto!important;min-height:100%!important;overflow-y:auto!import
 </div>
 </div>
 </article>
+</div>
+</section>
+<section class="people-preview" id="people" aria-labelledby="people-preview-title">
+<div class="people-preview-inner reveal">
+<div class="big-en">PEOPLE</div>
+<div>
+<div class="people-role">한나겸 · 밤밤웍스 대표</div>
+<h2 id="people-preview-title">공간의 가능성을 살피고,<br/>그 안에서 시작될 일을 함께 생각합니다.</h2>
+<p>건설 현장에서 쌓은 경험과 공간을 직접 만들고 운영하며 배운 시간을 바탕으로, 사람과 쓰임에서 출발하는 공간의 방향을 고민합니다.</p>
+<a class="people-more" href="people.html" aria-label="한나겸 대표의 PEOPLE 이야기 읽기">한나겸의 이야기 읽기 &nbsp; ↗</a>
+</div>
 </div>
 </section>
 <section class="works-section" id="works">
